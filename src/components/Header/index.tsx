@@ -3,7 +3,7 @@ import logo from "../../assets/images/logo.svg";
 import { CreateCategoryModal } from "../CreateCategoryModal";
 import { CreateProductModal } from "../CreateProductModal";
 
-import { Actions, Container, Content } from "./styles";
+import { Container, Content } from "./styles";
 
 export function Header() {
   const [isCreateProductOpenModal, setIsCreateProductOpenModal] =
@@ -41,26 +41,6 @@ export function Header() {
         />
 
         <img src={logo} alt="WAITERAPP Logo" />
-
-        <div className="page-details">
-          <Actions>
-            <button
-              className="primary"
-              type="button"
-              onClick={handleCreateProductOpenModal}
-            >
-              <strong>➕ Adicionar Produto</strong>
-            </button>
-
-            <button
-              className="primary"
-              type="button"
-              onClick={handleCreateCategoryOpenModal}
-            >
-              <strong>➕ Adicionar Categoria</strong>
-            </button>
-          </Actions>
-        </div>
       </Content>
     </Container>
   );
