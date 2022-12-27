@@ -82,7 +82,7 @@ export function OrderModal({
                   <img
                     width={56}
                     height={28.51}
-                    src={`https://waiterapp-api.up.railway.app/uploads/${product.imagePath}`}
+                    src={`http://localhost:8080/uploads/${product.imagePath}`}
                     alt={product.name}
                   />
 
