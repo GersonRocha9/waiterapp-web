@@ -8,9 +8,19 @@ interface OrderModalProps {
   isOpen: boolean;
   order: Order | null;
   onClose: () => void;
+  onCancelOrder: () => void;
+  onChangeOrderStatus: () => void;
+  isLoading: boolean;
 }
 
-export function OrderModal({ isOpen, order, onClose }: OrderModalProps) {
+export function OrderModal({
+  isOpen,
+  order,
+  onClose,
+  onCancelOrder,
+  onChangeOrderStatus,
+  isLoading,
+}: OrderModalProps) {
   // função de fechar modal ao apertar ESC
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -72,7 +82,7 @@ export function OrderModal({ isOpen, order, onClose }: OrderModalProps) {
                   <img
                     width={56}
                     height={28.51}
-                    src={`http://localhost:3001/uploads/${product.imagePath}`}
+                    src={`https://waiterapp-api.up.railway.app/uploads/${product.imagePath}`}
                     alt={product.name}
                   />
 
@@ -94,12 +104,30 @@ export function OrderModal({ isOpen, order, onClose }: OrderModalProps) {
         </OrderDetails>
 
         <Actions>
-          <button className="primary" type="button">
-            <span>👨‍🍳</span>
-            <strong>Iniciar Produção</strong>
-          </button>
+          {order.status !== "DONE" && (
+            <button
+              className="primary"
+              type="button"
+              disabled={isLoading}
+              onClick={onChangeOrderStatus}
+            >
+              <span>
+                {order.status === "WAITING" && "👨‍🍳"}
+                {order.status === "IN_PRODUCTION" && "✅"}
+              </span>
+              <strong>
+                {order.status === "WAITING" && "Iniciar preparo"}
+                {order.status === "IN_PRODUCTION" && "Finalizar pedido"}
+              </strong>
+            </button>
+          )}
 
-          <button className="secondary" type="button">
+          <button
+            className="secondary"
+            type="button"
+            onClick={onCancelOrder}
+            disabled={isLoading}
+          >
             <strong>Cancelar Pedido</strong>
           </button>
         </Actions>

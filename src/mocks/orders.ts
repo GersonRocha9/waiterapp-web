@@ -21,7 +21,7 @@ export const orders: Order[] = [
   {
     _id: "6372e48cbce195b0d3d0f7f3",
     table: "123",
-    status: "IN_PRODUCTION",
+    status: "WAITING",
     products: [
       {
         product: {
