@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  background-color: #d73035;
   height: 198px;
   display: flex;
   justify-content: center;
@@ -28,4 +27,11 @@ export const Content = styled.div`
       color: #fff;
     }
   }
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-right: 20px;
 `;

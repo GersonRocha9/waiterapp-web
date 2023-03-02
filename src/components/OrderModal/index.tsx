@@ -1,8 +1,9 @@
-import { useEffect } from "react";
-import closeIcon from "../../assets/images/close-icon.svg";
-import { Order } from "../../types/Order";
-import { formatCurrency } from "../../utils";
 import { Actions, ModalBody, OrderDetails, Overlay } from "./styles";
+
+import { Order } from "../../types/Order";
+import closeIcon from "../../assets/images/close-icon.svg";
+import { formatCurrency } from "../../utils";
+import { useEffect } from "react";
 
 interface OrderModalProps {
   isOpen: boolean;
